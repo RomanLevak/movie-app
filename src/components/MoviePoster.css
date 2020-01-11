@@ -1,0 +1,26 @@
+.movie-poster {
+  padding: 4px;
+  background: #16043a;
+}
+
+.movie-poster__title-box {
+  text-align: center;
+}
+
+.movie-poster__title {
+  width: 100%;
+  display: block;
+  color: #03823A;
+  font-weight: normal;
+  font-size: 15px;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: color 200ms;
+}
+
+.movie-poster__title:hover {
+  text-decoration: underline;
+  color: #30A764;
+}

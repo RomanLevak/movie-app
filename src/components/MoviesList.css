@@ -1,0 +1,35 @@
+.movies-list__title {
+  text-transform: capitalize;
+  color: rgb(167, 47, 17);
+  font-size: 20px;
+  margin: 8px;
+  margin-left: 15px;
+}
+
+.movies-list__body {
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.movies-list__item {
+  padding: 5px;
+  width: 25%;
+  max-width: 180px;
+}
+
+.movie-poster__img {
+  max-width: 100%;
+}
+
+@media (max-width: 600px) {
+  .movies-list__title {
+    font-size: 16px;
+  }
+
+  .movies-list__item {
+      width: calc(100% / 3);
+  }
+}

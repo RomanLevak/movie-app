@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link
+} from 'react-router-dom'
+import MoviesList from './components/MoviesList'
+import MovieInfo from './components/MovieInfo'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header className="app-header">
+        <h1>
+          <Link className="app-header__title" to="/">movie-app</Link>
+        </h1>
       </header>
-    </div>
-  );
+      <Switch>
+        <Route path="/:id"
+          render = {({match}) =>
+            <MovieInfo key={match.params.id}
+              id={match.params.id}
+            />
+          }
+        />
+        <Route>
+          <MoviesList type="popular" />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
