@@ -10,7 +10,7 @@ const defaultState = {
 }
 
 export default (movieInfo = defaultState, action) => {
-  const {type, payload} = action
+  const { type, payload } = action
 
   switch(type) {
     case LOAD_MOVIE_INFO + START:

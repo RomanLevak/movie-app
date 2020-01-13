@@ -10,15 +10,15 @@ const defaultState = {
 }
 
 export default (moviesState = defaultState, action) => {
-  const {type, payload} = action
+  const { type, payload } = action
 
   switch(type) {
     case LOAD_MOVIES + START:
-        return {
-          loading: true,
-          error: '',
-          entities: []
-        }
+      return {
+        loading: true,
+        error: '',
+        entities: []
+      }
 
     case LOAD_MOVIES + SUCCESS:
       return {

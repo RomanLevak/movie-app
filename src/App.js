@@ -19,7 +19,7 @@ function App() {
       </header>
       <Switch>
         <Route path="/:id"
-          render = {({match}) =>
+          render={({ match }) =>
             <MovieInfo key={match.params.id}
               id={match.params.id}
             />

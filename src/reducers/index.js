@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 import movies from './movies'
 import movieInfo from './movie-info'
 

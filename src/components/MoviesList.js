@@ -1,5 +1,6 @@
 import './MoviesList.css'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadMovies } from '../AC'
 import MoviePoster from './MoviePoster'
@@ -28,10 +29,10 @@ class MoviesList extends Component {
           {this.getItems()}
         </ul>
       </div>
-      )
-    }
+    )
+  }
 
-    getItems = () =>
+  getItems = () =>
     this.props.entities.map(movie =>
       <li className="movies-list__item" key={movie.id}>
         <MoviePoster
@@ -40,7 +41,17 @@ class MoviesList extends Component {
           title={movie.title}
         />
       </li>
-      )
+    )
+
+    static propTypes = {
+      id: PropTypes.string,
+      type: PropTypes.oneOf(['popular', 'similar']),
+      // from connect
+      loading: PropTypes.bool.isRequired,
+      error: PropTypes.string.isRequired,
+      entities: PropTypes.array.isRequired,
+      loadMovies: PropTypes.func.isRequired,
+    }
 }
 
 export default connect(

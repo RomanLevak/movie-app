@@ -1,5 +1,6 @@
 import './MovieInfo.css'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { loadMovieInfo } from '../AC'
 import MovieList from './MoviesList'
@@ -32,7 +33,7 @@ class MovieInfo extends Component {
         <div className="movie-info__box">
           <div className="movie-info__img-box">
             <img className="movie-info__img"
-              alt="title"
+              alt={title}
               src={`http://image.tmdb.org/t/p/w200/${poster_path}`}
             />
           </div>
@@ -40,10 +41,10 @@ class MovieInfo extends Component {
             {this.getInfoTable()}
           </div>
         </div>
-          <p className="movie-info__overview">
-            {overview}
-          </p>
-          <MovieList type="similar" id={id} />
+        <p className="movie-info__overview">
+          {overview}
+        </p>
+        <MovieList type="similar" id={id} />
       </div>
     )
   }
@@ -72,7 +73,7 @@ class MovieInfo extends Component {
             <td>vote count</td>
             <td>{vote_count}</td>
           </tr>
-            { homepage &&
+          { homepage &&
               <tr>
                 <td>homepage</td>
                 <td>
@@ -85,7 +86,7 @@ class MovieInfo extends Component {
                   </a>
                 </td>
               </tr>
-            }
+          }
           <tr>
             <td>Release date</td>
             <td>{release_date}</td>
@@ -121,6 +122,15 @@ class MovieInfo extends Component {
         </tbody>
       </table>
     )
+  }
+
+  static propTypes = {
+    // from connect
+    id: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string.isRequired,
+    entity: PropTypes.object.isRequired,
+    loadMovieInfo: PropTypes.func.isRequired
   }
 }
 
